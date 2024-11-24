@@ -1,0 +1,57 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    storageclass.beta.kubernetes.io/is-default-class: "false"
+  name: gp2
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer
+#volumeBindingMode: Immediate
+parameters:
+  type: gp2
+  fsType: ext4
+mountOptions:
+  - debug
+
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    storageclass.beta.kubernetes.io/is-default-class: "false"
+  name: gp3
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Retain
+allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer
+#volumeBindingMode: Immediate
+parameters:
+  type: gp3
+  fsType: ext4
+mountOptions:
+  - debug
+
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-client
+  labels:
+    app: nfs-subdir-external-provisioner
+    app.kubernetes.io/managed-by: Helm
+    chart: nfs-subdir-external-provisioner-4.0.18
+    heritage: Helm
+    release: nfs-client
+  annotations:
+    meta.helm.sh/release-name: nfs-client
+    meta.helm.sh/release-namespace: default
+    storageclass.beta.kubernetes.io/is-default-class: "true"
+provisioner: cluster.local/nfs-client-nfs-subdir-external-provisioner
+parameters:
+  archiveOnDelete: 'true'
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: Immediate
