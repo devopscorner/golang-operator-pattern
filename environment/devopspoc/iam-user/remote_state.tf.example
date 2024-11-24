@@ -1,0 +1,24 @@
+# ==========================================================================
+#  111122223333 - IAM: remote_states.tf (Remote Terraform References)
+# --------------------------------------------------------------------------
+#  Description
+# --------------------------------------------------------------------------
+#    - DynamoDB
+#    - S3 Bucket
+#    - Region
+# ==========================================================================
+
+# --------------------------------------------------------------------------
+#  Use Existing Core Terraform Remote State
+# --------------------------------------------------------------------------
+data "terraform_remote_state" "tfstate_remote" {
+  backend   = "s3"
+  workspace = local.env
+
+  config = {
+    bucket  = "tf-state-111122223333-us-west-2"
+    key     = "devopscorner/111122223333/tfstate/terraform.tfstate"
+    region  = var.aws_region
+    profile = var.aws_account_profile_source
+  }
+}

@@ -1,0 +1,23 @@
+# permissions for end users to view orders.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: src
+    app.kubernetes.io/managed-by: kustomize
+  name: product-order-viewer-role
+rules:
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - orders
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - orders/status
+  verbs:
+  - get

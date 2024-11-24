@@ -1,0 +1,23 @@
+# permissions for end users to view logins.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: src
+    app.kubernetes.io/managed-by: kustomize
+  name: auth-login-viewer-role
+rules:
+- apiGroups:
+  - auth.awscb.id
+  resources:
+  - logins
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - auth.awscb.id
+  resources:
+  - logins/status
+  verbs:
+  - get

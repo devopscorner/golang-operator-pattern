@@ -1,0 +1,27 @@
+# permissions for end users to edit orders.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: src
+    app.kubernetes.io/managed-by: kustomize
+  name: product-order-editor-role
+rules:
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - orders
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - orders/status
+  verbs:
+  - get

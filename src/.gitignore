@@ -1,0 +1,102 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/*
+Dockerfile.cross
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Go workspace file
+go.work
+
+# Kubernetes Generated files - skip generated files, except for vendored files
+!vendor/**/zz_generated.*
+
+# editor and IDE paraphernalia
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+
+### Basic .gitignore
+# **/terraform.tfstate
+**/terraform.tfstate.backup
+**/terraform.tfplan
+**/.terraform/**
+**/terraform.tfstate.d/**
+**/*.tfplan
+**/terraform_plugins/**
+backend.hcl
+# *.hcl
+# *.lock.hcl
+# only for snd
+#backend.tf
+*.tfvars
+
+### https://raw.githubusercontent.com/hashicorp/terraform/master/.gitignore
+*.dll
+*.exe
+.DS_Store
+example.tf
+terraform.tfplan
+terraform.tfstate
+tf.out
+.vagrant/
+*.backup
+./*.tfstate
+errored.tfstate
+.terraform/
+*.log
+*.bak
+*~
+.*.swp
+.idea
+*.iml
+*.test
+*.iml
+.envrc
+
+### https://raw.github.com/github/gitignore/abad92dac5a4306f72242dae3bca6e277bce3615/Global/Vim.gitignore
+
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+
+### Ignore .DS_Store on MAC
+.DS_Store
+.DS_Store?
+
+### Temporary dir for CodeDeploy
+build/
+.build
+
+terraform.tfstate*
+*.zip
+*.tgz
+*.icloud
+*.whl
+
+.terraform
+terraform/modules/**
+test/**
+tfplan*
+
+_kms_cmk-dci-staging/*.json
+_tfstate/*.json
+terraform.json

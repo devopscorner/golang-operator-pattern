@@ -1,0 +1,9 @@
+apiVersion: product.awscb.id/v1
+kind: Product
+metadata:
+  labels:
+    app.kubernetes.io/name: src
+    app.kubernetes.io/managed-by: kustomize
+  name: product-sample
+spec:
+  # TODO(user): Add fields here

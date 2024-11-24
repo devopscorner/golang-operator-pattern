@@ -1,0 +1,110 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - auth.awscb.id
+  resources:
+  - logins
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - auth.awscb.id
+  resources:
+  - logins/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - auth.awscb.id
+  resources:
+  - logins/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - auth.awscb.id
+  resources:
+  - users
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - auth.awscb.id
+  resources:
+  - users/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - auth.awscb.id
+  resources:
+  - users/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - orders
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - orders/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - orders/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - products
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - products/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - product.awscb.id
+  resources:
+  - products/status
+  verbs:
+  - get
+  - patch
+  - update
